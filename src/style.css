@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.router-link-exact-active {
+    border-right: solid 3px white;
+}
+
+@media (min-width: 768px) {
+    .router-link-exact-active {
+        border-right: none;
+        border-bottom: solid 3px white;
+        padding-bottom: 1.1em;
+    }
+}
