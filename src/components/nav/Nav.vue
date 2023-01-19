@@ -21,7 +21,7 @@
     <nav class="text-white w-[60vw] h-[60px] bg-[#8080801c] backdrop-blur-md hidden items-center md:flex lg:hidden">
         <ul class="flex list-none justify-evenly w-full">
             <li v-for="item in navLinks" :key="item" class="font-['Barlow_Condensed'] text-[1rem] uppercase">
-                <router-link :to="item.link">
+                <router-link :to="item.link" class="pb-[1.1em] hover:border-b-[3px] hover:border-solid hover:border-[#D0D6F9]">
                     {{ item.name }}
                 </router-link>
             </li>
@@ -30,7 +30,7 @@
     <nav class="text-white w-[75vw] h-[60px] bg-[#8080801c] backdrop-blur-md hidden items-center px-[2em] lg:flex">
         <ul class="flex list-none justify-evenly w-full">
             <li v-for="item in navLinks" :key="item" class="font-['Barlow_Condensed'] text-[1rem] uppercase">
-                <router-link :to="item.link">
+                <router-link :to="item.link" class="pb-[1.1em] hover:border-b-[3px] hover:border-solid hover:border-[#D0D6F9]">
                     <span class="mr-[0.4em] font-bold">{{ item.id }}</span>
                     {{ item.name }}
                 </router-link>

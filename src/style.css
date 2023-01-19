@@ -10,7 +10,7 @@
 
 @media (min-width: 768px) {
     .router-link-exact-active {
-        border-right: none;
+        border-right: none!important;
         border-bottom: solid 3px white;
         padding-bottom: 1.1em;
     }

@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Destination from '../views/Destination.vue'
+import Destination from '../views/destination/Destination.vue'
 import Crew from '../views/Crew.vue'
+import Technology from '../views/Technology.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,7 +21,7 @@ const router = createRouter({
         },
         {
             path: '/technology',
-            component: () => import('../views/Technology.vue')
+            component: Technology
         }
     ]
 })
