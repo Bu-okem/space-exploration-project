@@ -32,7 +32,7 @@
 				class="font-['Barlow_Condensed'] text-[1rem] uppercase">
 				<router-link
 					:to="item.link"
-					class="pb-[1.1em] hover:border-b-[3px] hover:border-solid hover:border-[#D0D6F9]">
+					class="pb-[1.1em] lg:hover:border-b-[3px] lg:hover:border-solid lg:hover:border-[#D0D6F9]">
 					{{ item.name }}
 				</router-link>
 			</li>

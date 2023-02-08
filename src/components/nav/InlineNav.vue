@@ -1,6 +1,6 @@
 <template>
 	<div class="mt-[2em]">
-		<ul class="flex justify-evenly mx-auto" :class="width">
+		<ul class="flex justify-evenly mx-auto lg:mx-0" :class="width">
 			<li
 				v-for="(item, tabIndex) in list"
 				:key="tabIndex"
@@ -9,8 +9,8 @@
 					index = tabIndex;
 					emitIndex();
 				"
-				class="font-['Barlow_Condensed'] w-fit cursor-pointer md:hover:border-b-[3px] border-solid"
-				:class="{ [active]: currentTab === tabIndex }">
+				class="font-['Barlow_Condensed'] text-[14px] w-fit cursor-pointer pb-[1px] uppercase md:text-[16px] md:pb-[7px] lg:hover:border-b-[3px] border-solid"
+				:class="currentTab === tabIndex ? [active] : 'text-[#D0D6F9]'">
 				<template v-if="itemIndicatorType === 'name'">
 					{{ item.name }}
 				</template>
@@ -48,7 +48,7 @@ export default {
 		const width = computed(() => {
 			let widthValue;
 			if (itemIndicatorType === "name") {
-				widthValue = "w-[60%]";
+				widthValue = "w-[60%] max-w-[285.5px]";
 			} else if (itemIndicatorType === "number") {
 				widthValue = "w-[50%]";
 			} else {
@@ -60,7 +60,7 @@ export default {
 		const active = computed(() => {
 			let activeValue;
 			if (itemIndicatorType === "name") {
-				activeValue = "border-b-[3px] border-b-white border-solid";
+				activeValue = "border-b-[3px] border-b-white border-solid text-white";
 			} else if (itemIndicatorType === "number") {
 				activeValue = "bg-white rounded-full text-black";
 			} else {
