@@ -1,6 +1,6 @@
 <template>
 	<main
-		class="bg-[url('../src/assets/technology/background-technology-mobile.jpg')] bg-no-repeat bg-cover h-screen text-white sm:bg-[url('../src/assets/technology/background-technology-tablet.jpg')] lg:bg-[url('../src/assets/technology/background-technology-desktop.jpg')]">
+		class="bg-[url('../src/assets/technology/background-technology-mobile.jpg')] bg-no-repeat bg-cover h-full text-white sm:bg-[url('../src/assets/technology/background-technology-tablet.jpg')] lg:bg-[url('../src/assets/technology/background-technology-desktop.jpg')]">
 		<div
 			class="w-[95%] mx-auto text-center md:text-left lg:w-[100%] lg:ml-[2em] lg:relative lg:top-[25px]">
 			<h3
@@ -9,6 +9,33 @@
 				launch 101
 			</h3>
 		</div>
+		<section class="mt-[2em] pb-[2.5em] lg:flex lg:flex-row-reverse">
+			<div class="w-[calc(100vw+1vw)]">
+				<img
+					:src="`/src/${technology[index].images.landscape}`"
+					alt=""
+					class="w-full" />
+			</div>
+			<div class="">
+				<InlineNav
+					:list="technology"
+					itemIndicatorType="number"
+					@index="getIndex" />
+				<div class="text-center mt-[1.6em]">
+					<h3
+						class="font-['Barlow_Condensed'] text-[0.8rem] text-[#D0D6F9] tracking-[2.4px] uppercase">
+						The Terminology...
+					</h3>
+					<h2 class="font-['Bellefair'] text-[1.5rem] uppercase">
+						{{ technology[index].name }}
+					</h2>
+					<p
+						class="font-['Barlow'] text-[0.94rem] text-[#D0D6F9] leading-[25px] mt-[1em] mx-auto w-[80%] max-w-[458px]">
+						{{ technology[index].description }}
+					</p>
+				</div>
+			</div>
+		</section>
 	</main>
 </template>
 
@@ -23,7 +50,7 @@ export default {
 		InlineNav,
 	},
 	setup() {
-		const destinations = data.destinations;
+		const technology = data.technology;
 		let index = ref(0);
 		let currentTab = ref(0);
 
@@ -32,7 +59,7 @@ export default {
 		};
 
 		return {
-			destinations,
+			technology,
 			index,
 			currentTab,
 			getIndex,
