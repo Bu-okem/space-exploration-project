@@ -1,32 +1,38 @@
 <template>
 	<main
-		class="bg-[url('../src/assets/technology/background-technology-mobile.jpg')] bg-no-repeat bg-cover h-full text-white sm:bg-[url('../src/assets/technology/background-technology-tablet.jpg')] lg:bg-[url('../src/assets/technology/background-technology-desktop.jpg')]">
+		class="bg-[url('../src/assets/technology/background-technology-mobile.jpg')] bg-no-repeat bg-cover h-full text-white sm:bg-[url('../src/assets/technology/background-technology-tablet.jpg')] lg:bg-[url('../src/assets/technology/background-technology-desktop.jpg')] lg:h-fit">
 		<div
-			class="w-[95%] mx-auto text-center md:text-left lg:w-[100%] lg:ml-[2em] lg:relative lg:top-[25px]">
+			class="w-[95%] mx-auto text-center md:text-left lg:w-[100%] lg:ml-[2em] lg:mt-[4em] lg:mb-[1.5em]">
 			<h3
 				class="font-['Barlow_Condensed'] uppercase tracking-[2.7px] md:text-[1.25rem] md:tracking-[3.4px] lg:tracking-[4.7px]">
 				<span class="pr-[1em] opacity-[0.25] tracking-[0px]">03</span>Space
 				launch 101
 			</h3>
 		</div>
-		<section class="mt-[2em] pb-[2.5em] lg:flex lg:flex-row-reverse">
-			<div class="w-[calc(100vw+1vw)]">
-				<img
-					:src="`/src/${technology[index].images.landscape}`"
-					alt=""
-					class="w-full" />
+		<section
+			class="mt-[2em] pb-[2.5em] lg:flex lg:flex-row-reverse lg:items-center lg:justify-between lg:pb-[6.6em]">
+			<div class="w-[calc(100vw+1vw)] lg:w-fit">
+				<picture class="">
+					<source
+						media="(min-width: 1024px)"
+						:srcset="`/src/${technology[index].images.portrait}`" />
+					<img
+						:src="`/src/${technology[index].images.landscape}`"
+						alt=""
+						class="w-[512px] h-[527px]" />
+				</picture>
 			</div>
-			<div class="">
+			<div class="lg:flex lg:items-center lg:ml-[10em]">
 				<InlineNav
 					:list="technology"
 					itemIndicatorType="number"
 					@index="getIndex" />
-				<div class="text-center mt-[1.6em]">
+				<div class="text-center mt-[1.6em] lg:text-left">
 					<h3
-						class="font-['Barlow_Condensed'] text-[0.8rem] text-[#D0D6F9] tracking-[2.4px] uppercase">
+						class="font-['Barlow_Condensed'] text-[0.8rem] text-[#D0D6F9] tracking-[2.4px] uppercase ml-[4em]">
 						The Terminology...
 					</h3>
-					<h2 class="font-['Bellefair'] text-[1.5rem] uppercase">
+					<h2 class="font-['Bellefair'] text-[1.5rem] uppercase ml-[2em]">
 						{{ technology[index].name }}
 					</h2>
 					<p

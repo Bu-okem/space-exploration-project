@@ -15,6 +15,7 @@
 					itemIndicatorType === 'name'
 						? 'pb-[1px] md:pb-[7px] lg:hover:border-b-[3px]'
 						: '',
+					itemIndicatorType === 'number' ? 'lg:mb-[2em]' : '',
 				]">
 				<template v-if="itemIndicatorType === 'name'">
 					{{ item.name }}
