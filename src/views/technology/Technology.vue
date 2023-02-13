@@ -15,11 +15,11 @@
 				<picture class="">
 					<source
 						media="(min-width: 1024px)"
-						:srcset="`/src/${technology[index].images.portrait}`" />
+						:srcset="`./src/${technology[index].images.portrait}`" />
 					<img
-						:src="`/src/${technology[index].images.landscape}`"
+						:src="`./src/${technology[index].images.landscape}`"
 						alt=""
-						class="w-[512px] h-[527px]" />
+						class="w-full h-full" />
 				</picture>
 			</div>
 			<div class="lg:flex lg:items-center lg:ml-[10em]">
