@@ -13,7 +13,7 @@
 			<section class="lg:w-[445px] lg:h-fit">
 				<div
 					class="h-[170px] w-[170px] mx-auto mt-[2.5em] md:h-[300px] md:w-[300px] lg:h-fit lg:w-[445px] lg:mt-0">
-					<img :src="`./src/${destinations[index].images.png}`" alt="" />
+					<img :src="`../src/${destinations[index].images.png}`" alt="" />
 				</div>
 			</section>
 

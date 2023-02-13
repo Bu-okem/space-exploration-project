@@ -15,9 +15,9 @@
 				<picture class="">
 					<source
 						media="(min-width: 1024px)"
-						:srcset="`./src/${technology[index].images.portrait}`" />
+						:srcset="`../src/${technology[index].images.portrait}`" />
 					<img
-						:src="`./src/${technology[index].images.landscape}`"
+						:src="`../src/${technology[index].images.landscape}`"
 						alt=""
 						class="w-full h-full" />
 				</picture>

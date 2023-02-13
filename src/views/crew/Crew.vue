@@ -13,7 +13,7 @@
 			class="mt-[2em] md:flex md:flex-col-reverse lg:flex-row-reverse lg:items-center lg:justify-center">
 			<div class="w-[80%] mx-auto border-b-[1px] border-b-[#383B4B] lg:w-fit">
 				<img
-					:src="`./src/${crew[index].images.png}`"
+					:src="`../src/${crew[index].images.png}`"
 					alt=""
 					class="h-[222px] mx-auto md:h-[572px] lg:h-[712px]" />
 			</div>
