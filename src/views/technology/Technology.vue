@@ -15,9 +15,9 @@
 				<picture class="">
 					<source
 						media="(min-width: 1024px)"
-						:srcset="`../src/${technology[index].images.portrait}`" />
+						:srcset="`${imageListPortrait[index]}`" />
 					<img
-						:src="`../src/${technology[index].images.landscape}`"
+						:src="`${imageListLandscape[index]}`"
 						alt=""
 						class="w-full h-full" />
 				</picture>
@@ -49,6 +49,12 @@
 import InlineNav from "../../components/nav/InlineNav.vue";
 import { ref } from "vue";
 import data from "../../data.json";
+import techImg1Portrait from "../../assets/technology/image-launch-vehicle-portrait.jpg";
+import techImg2Portrait from "../../assets/technology/image-spaceport-portrait.jpg";
+import techImg3Portrait from "../../assets/technology/image-space-capsule-portrait.jpg";
+import techImg1Landscape from "../../assets/technology/image-space-capsule-landscape.jpg";
+import techImg2Landscape from "../../assets/technology/image-space-capsule-landscape.jpg";
+import techImg3Landscape from "../../assets/technology/image-space-capsule-landscape.jpg";
 
 export default {
 	name: "Technology",
@@ -59,6 +65,16 @@ export default {
 		const technology = data.technology;
 		let index = ref(0);
 		let currentTab = ref(0);
+		const imageListLandscape = [
+			techImg1Landscape,
+			techImg2Landscape,
+			techImg3Landscape,
+		];
+		const imageListPortrait = [
+			techImg1Portrait,
+			techImg2Portrait,
+			techImg3Portrait,
+		];
 
 		const getIndex = (value) => {
 			index.value = value.value;
@@ -68,6 +84,8 @@ export default {
 			technology,
 			index,
 			currentTab,
+			imageListLandscape,
+			imageListPortrait,
 			getIndex,
 		};
 	},

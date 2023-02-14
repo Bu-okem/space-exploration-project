@@ -13,7 +13,7 @@
 			<section class="lg:w-[445px] lg:h-fit">
 				<div
 					class="h-[170px] w-[170px] mx-auto mt-[2.5em] md:h-[300px] md:w-[300px] lg:h-fit lg:w-[445px] lg:mt-0">
-					<img :src="`../src/${destinations[index].images.png}`" alt="" />
+					<img :src="`${destinationImages[index]}`" alt="" />
 				</div>
 			</section>
 
@@ -72,6 +72,10 @@
 import InlineNav from "../../components/nav/InlineNav.vue";
 import { ref } from "vue";
 import data from "../../data.json";
+import destination1 from "../../assets/destination/image-moon.png";
+import destination2 from "../../assets/destination/image-mars.png";
+import destination3 from "../../assets/destination/image-europa.png";
+import destination4 from "../../assets/destination/image-titan.png";
 
 export default {
 	name: "Destination",
@@ -82,6 +86,12 @@ export default {
 		const destinations = data.destinations;
 		let index = ref(0);
 		let currentTab = ref(0);
+		const destinationImages = [
+			destination1,
+			destination2,
+			destination3,
+			destination4,
+		];
 
 		const getIndex = (value) => {
 			index.value = value.value;
@@ -90,6 +100,7 @@ export default {
 		return {
 			destinations,
 			index,
+			destinationImages,
 			currentTab,
 			getIndex,
 		};

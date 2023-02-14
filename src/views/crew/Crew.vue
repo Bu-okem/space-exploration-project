@@ -13,7 +13,7 @@
 			class="mt-[2em] md:flex md:flex-col-reverse lg:flex-row-reverse lg:items-center lg:justify-center">
 			<div class="w-[80%] mx-auto border-b-[1px] border-b-[#383B4B] lg:w-fit">
 				<img
-					:src="`../src/${crew[index].images.png}`"
+					:src="`${crewImages[index]}`"
 					alt=""
 					class="h-[222px] mx-auto md:h-[572px] lg:h-[712px]" />
 			</div>
@@ -44,6 +44,10 @@
 import InlineNav from "../../components/nav/InlineNav.vue";
 import { ref } from "vue";
 import data from "../../data.json";
+import crew1 from "../../assets/crew/image-douglas-hurley.png";
+import crew2 from "../../assets/crew/image-mark-shuttleworth.png";
+import crew3 from "../../assets/crew/image-victor-glover.png";
+import crew4 from "../../assets/crew/image-anousheh-ansari.png";
 
 export default {
 	name: "Crew",
@@ -54,6 +58,7 @@ export default {
 		const crew = data.crew;
 		let index = ref(0);
 		let currentTab = ref(0);
+		const crewImages = [crew1, crew2, crew3, crew4];
 
 		const getIndex = (value) => {
 			index.value = value.value;
@@ -63,6 +68,7 @@ export default {
 			crew,
 			index,
 			currentTab,
+			crewImages,
 			getIndex,
 		};
 	},
