@@ -29,10 +29,10 @@
 					@index="getIndex" />
 				<div class="text-center mt-[1.6em] lg:text-left">
 					<h3
-						class="font-['Barlow_Condensed'] text-[0.8rem] text-[#D0D6F9] tracking-[2.4px] uppercase ml-[4em]">
+						class="font-['Barlow_Condensed'] text-[0.8rem] text-[#D0D6F9] tracking-[2.4px] uppercase lg:ml-[4em]">
 						The Terminology...
 					</h3>
-					<h2 class="font-['Bellefair'] text-[1.5rem] uppercase ml-[2em]">
+					<h2 class="font-['Bellefair'] text-[1.5rem] uppercase lg:ml-[2em]">
 						{{ technology[index].name }}
 					</h2>
 					<p
