@@ -1,28 +1,31 @@
 <template>
-	<div class="cursor-pointer md:hidden" @click="toggleNav">
-		<img src="../../assets/shared/icon-hamburger.svg" alt="" />
-	</div>
-	<nav
-		class="text-white w-[67%] fixed top-0 h-screen bg-transparent backdrop-blur-md duration-700 md:hidden"
-		:class="[open ? 'right-0' : 'right-[-80%]']">
-		<div class="py-[1.6em]" @click="toggleNav">
-			<img
-				src="../../assets/shared/icon-close.svg"
-				alt=""
-				class="mr-[1.3em] float-right cursor-pointer" />
+	<div ref="nav" class="nav">
+		<div @click="navOpen = !navOpen" class="cursor-pointer md:hidden">
+			<img src="../../assets/shared/icon-hamburger.svg" alt="" />
 		</div>
-		<ul class="list-none h-[35%] flex flex-col justify-evenly pl-[2em]">
-			<li
-				v-for="item in navLinks"
-				:key="item"
-				class="flex font-['Barlow_Condensed'] text-[1rem] uppercase leading-1">
-				<router-link :to="item.link" class="flex w-full">
-					<span class="mr-[0.4em] font-bold">{{ item.id }}</span>
-					{{ item.name }}
-				</router-link>
-			</li>
-		</ul>
-	</nav>
+		<nav
+			class="text-white w-[67%] fixed top-0 h-screen bg-transparent backdrop-blur-md duration-700 md:hidden"
+			:class="[navOpen ? 'right-0' : 'right-[-80%]']">
+			<div class="py-[1.6em]" @click="navOpen = !navOpen">
+				<img
+					src="../../assets/shared/icon-close.svg"
+					alt=""
+					class="mr-[1.3em] float-right cursor-pointer" />
+			</div>
+			<ul class="list-none h-[35%] flex flex-col justify-evenly pl-[2em]">
+				<li
+					v-for="item in navLinks"
+					:key="item"
+					@click="navOpen = !navOpen"
+					class="flex font-['Barlow_Condensed'] text-[1rem] uppercase leading-1">
+					<router-link :to="item.link" class="flex w-full">
+						<span class="mr-[0.4em] font-bold">{{ item.id }}</span>
+						{{ item.name }}
+					</router-link>
+				</li>
+			</ul>
+		</nav>
+	</div>
 	<nav
 		class="text-white w-[60vw] h-[60px] bg-[#8080801c] backdrop-blur-md hidden items-center md:flex lg:hidden">
 		<ul class="flex list-none justify-evenly w-full">
@@ -57,10 +60,13 @@
 </template>
 
 <script>
-import useToggleNav from "../../composables/useToggleNav";
+import useDetectOutsideClick from "../../composables/useDetectOutsideClick";
+import { ref } from "vue";
 export default {
 	name: "Nav",
 	setup() {
+		const nav = ref(null);
+		const navOpen = ref(false);
 		const navLinks = [
 			{
 				id: "00",
@@ -84,12 +90,14 @@ export default {
 			},
 		];
 
-		const { open, toggleNav } = useToggleNav();
+		useDetectOutsideClick(nav, () => {
+			navOpen.value = false;
+		});
 
 		return {
+			nav,
 			navLinks,
-			open,
-			toggleNav,
+			navOpen,
 		};
 	},
 };
